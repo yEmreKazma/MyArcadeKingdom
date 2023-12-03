@@ -6,7 +6,22 @@ public class ResourceManager : MonoBehaviour
 {
     private int _metalCount;
     private int _woodCount;
-    private int _stoneCount;
+    public int _stoneCount;
+
+    public static ResourceManager Instance;
+
+    private void Awake()
+    {
+        if (Instance == null)
+        {
+            Instance = this;
+            DontDestroyOnLoad(gameObject);
+        }
+        else
+        {
+            Destroy(gameObject);
+        }
+    }
     void Start()
     {
         _metalCount = 0;
@@ -14,8 +29,12 @@ public class ResourceManager : MonoBehaviour
         _stoneCount = 0;
     }
 
-    void AddToInventory()
+    private void Update()
     {
-        
+        Debug.Log(_stoneCount);
+    }
+    public void StoneCollected()
+    {
+        _stoneCount++;
     }
 }

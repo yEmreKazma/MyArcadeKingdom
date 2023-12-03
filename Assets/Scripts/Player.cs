@@ -27,5 +27,14 @@ public class Player : MonoBehaviour
         {
             sword.Upgrade();
         }
+
+        if (other.CompareTag("Collectible"))
+        {
+            Debug.Log("temas");
+            if(other.GameObject().name == "Stone")
+            {
+                ResourceManager.Instance.StoneCollected();
+            }
+        }
     }
 }
