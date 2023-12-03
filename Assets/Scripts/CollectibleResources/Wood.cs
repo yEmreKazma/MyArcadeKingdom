@@ -2,11 +2,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Wood :MonoBehaviour , ICollectible
+public class Wood :Collectibles
 {
-    public void Collect()
-    {
-        Debug.Log("Wood Collected");
-    }
+
 
 }

@@ -2,11 +2,11 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Metal : MonoBehaviour, ICollectible
+public class Metal : Collectibles
 {
-    public void Collect()
-    {
-        Debug.Log("Metal Collected");
-    }
 
+    private void Start()
+    {
+
+    }
 }
