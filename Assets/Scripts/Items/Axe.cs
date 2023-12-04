@@ -4,9 +4,17 @@ using UnityEngine;
 
 public class Axe : Item
 {
+    int axeLevel;
+
+    void Start()
+    {
+
+        axeLevel = 1;
+        Debug.Log("Axe Starting Level : " + axeLevel);
+    }
     public override void Upgrade()
     {
-        level++;
+        axeLevel++;
     }
 
     public override void Use()
@@ -14,12 +22,6 @@ public class Axe : Item
         Debug.Log("Axe used on Tree");
     }
 
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-        level = 1;
-        Debug.Log("Axe Starting Level : " + level);
-    }
+
 
 }

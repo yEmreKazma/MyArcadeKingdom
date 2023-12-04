@@ -8,7 +8,6 @@ public class Player : MonoBehaviour
 {
     //Tüm kodlar test amacýyla eklenmiþtir.
     public Sword sword;
-    int swordLevel;
 
     private void Start()
     {
@@ -35,6 +34,17 @@ public class Player : MonoBehaviour
             if (collision.transform.GameObject().name == "Iron")
             {
                 ResourceManager.Instance.iron.Collect();
+            }
+        }
+    }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.CompareTag("NPC"))
+        {
+            if(other.GameObject().name == "WeaponMaster")
+            {
+                sword.swordLevel++;
             }
         }
     }

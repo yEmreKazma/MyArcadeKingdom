@@ -4,9 +4,10 @@ using UnityEngine;
 
 public class Pickaxe : Item
 {
+    int pickaxeLevel;
     public override void Upgrade()
     {
-        level++;
+        pickaxeLevel++;
     }
 
     public override void Use()
@@ -17,9 +18,9 @@ public class Pickaxe : Item
     // Start is called before the first frame update
     void Start()
     {
-        
-        level = 1;
-        Debug.Log("Pickaxe Starting Level : " + level);
+
+        pickaxeLevel = 1;
+        Debug.Log("Pickaxe Starting Level : " + pickaxeLevel);
     }
 
 }

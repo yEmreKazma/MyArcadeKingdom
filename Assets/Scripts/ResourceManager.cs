@@ -54,4 +54,24 @@ public class ResourceManager : MonoBehaviour
             Debug.Log("metal count : " + ironCount);
         }
     }
+
+    public void ResourceSpend(string resource)
+    {
+        if (resource == "Wood")
+        {
+            woodCount--;
+            Debug.Log("wood count : " + woodCount);
+        }
+        else if (resource == "Stone")
+        {
+            stoneCount--;
+            Debug.Log("stone count : " + stoneCount);
+        }
+        else if (resource == "Iron")
+        {
+            ironCount--;
+            Debug.Log("metal count : " + ironCount);
+        }
+    }
+
 }

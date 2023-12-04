@@ -4,9 +4,10 @@ using UnityEngine;
 
 public class Sword : Item
 {
+    public int swordLevel;
     public override void Upgrade()
     {
-        level++;
+        swordLevel++;
     }
 
     public override void Use()
@@ -17,9 +18,9 @@ public class Sword : Item
     // Start is called before the first frame update
     void Start()
     {
-        
-        level = 1;
-        Debug.Log("Sword Starting Level : " + level);
+
+        swordLevel = 1;
+        Debug.Log("Sword Starting Level : " + swordLevel);
     }
 
 }
