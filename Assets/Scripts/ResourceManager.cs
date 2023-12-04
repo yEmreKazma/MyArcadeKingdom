@@ -28,13 +28,26 @@ public class ResourceManager : MonoBehaviour
         _woodCount = 0;
         _stoneCount = 0;
     }
-
-    private void Update()
+    public void ResourceCollected(string resource)
     {
-        Debug.Log(_stoneCount);
+        if(resource == "Wood")
+        {
+            _woodCount++;
+        }
+
+        
     }
     public void StoneCollected()
     {
         _stoneCount++;
+    }
+    public void WoodCollected()
+    {
+        _woodCount++;
+    }
+
+    public void MetalCollected()
+    {
+        _metalCount++;
     }
 }
