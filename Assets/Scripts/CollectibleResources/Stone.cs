@@ -15,25 +15,20 @@ public class Stone : MonoBehaviour, ICollectible
         amount = 5;
         isDepleted = false;
     }
-    /*public void Update()
-    {
-        if (amount <= 0)
-        {
-            isDepleted = true;
-        }
-    }*/
+
     public void Collect()
     {
         Debug.Log("Stone Collected");
-        amount -= 1;
-        ResourceManager.Instance.StoneCollected();
+        amount--;
+        ResourceManager.Instance.ResourceCollected(resourceName);
         if (amount <= 0)
         {
             isDepleted = true;
-            Respawn();
+            //Respawn();
         }
     }
 
+    /*
     public void Respawn()
     {
         StartCoroutine(RespawnStone());
@@ -45,6 +40,7 @@ public class Stone : MonoBehaviour, ICollectible
         amount = 5;
         isDepleted = false;
     }
+    */
 
 }
 

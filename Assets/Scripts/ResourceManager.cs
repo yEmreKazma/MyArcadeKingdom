@@ -4,9 +4,13 @@ using UnityEngine;
 
 public class ResourceManager : MonoBehaviour
 {
-    private int _metalCount;
-    private int _woodCount;
-    public int _stoneCount;
+    public Iron iron;
+    public Wood wood;
+    public Stone stone;
+
+    public int stoneCount;
+    public int woodCount;
+    public int ironCount;
 
     public static ResourceManager Instance;
 
@@ -24,30 +28,30 @@ public class ResourceManager : MonoBehaviour
     }
     void Start()
     {
-        _metalCount = 0;
-        _woodCount = 0;
-        _stoneCount = 0;
+        stone = new Stone();
+        wood = new Wood();
+        iron = new Iron();
+
+        stoneCount = 0;
+        woodCount = 0;
+        ironCount = 0;
     }
     public void ResourceCollected(string resource)
     {
         if(resource == "Wood")
         {
-            _woodCount++;
+            woodCount++;
+            Debug.Log("wood count : " + woodCount);
         }
-
-        
-    }
-    public void StoneCollected()
-    {
-        _stoneCount++;
-    }
-    public void WoodCollected()
-    {
-        _woodCount++;
-    }
-
-    public void MetalCollected()
-    {
-        _metalCount++;
+        else if (resource == "Stone")
+        {
+            stoneCount++;
+            Debug.Log("stone count : " + stoneCount);
+        }
+        else if (resource == "Iron")
+        {
+            ironCount++;
+            Debug.Log("metal count : " + ironCount);
+        }
     }
 }

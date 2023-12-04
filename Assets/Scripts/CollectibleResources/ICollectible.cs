@@ -10,7 +10,6 @@ public interface ICollectible
     float respawnTime { get; }
     bool isDepleted { get; set; }
     void Collect();
-    void Respawn();
-
+    //void Respawn();
 }
 

@@ -14,6 +14,8 @@ public class ResourceInfoUI : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        resourceText.text = "Taþ sayýsý : " + ResourceManager.Instance._stoneCount;
+        resourceText.text = "Taþ sayýsý : " + ResourceManager.Instance.stoneCount +
+            "Odun sayýsý : " + ResourceManager.Instance.woodCount +
+            "Demir sayýsý : " + ResourceManager.Instance.ironCount;
     }
 }

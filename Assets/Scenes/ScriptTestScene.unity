@@ -238,7 +238,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1768827389099906195, guid: f6557d2a058a00d42bfb8e4bc06cd178, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -5.72
+      value: -0.17
       objectReference: {fileID: 0}
     - target: {fileID: 1768827389099906195, guid: f6557d2a058a00d42bfb8e4bc06cd178, type: 3}
       propertyPath: m_LocalPosition.y
@@ -246,7 +246,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1768827389099906195, guid: f6557d2a058a00d42bfb8e4bc06cd178, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -6.308
+      value: -5.179
       objectReference: {fileID: 0}
     - target: {fileID: 1768827389099906195, guid: f6557d2a058a00d42bfb8e4bc06cd178, type: 3}
       propertyPath: m_LocalRotation.w
@@ -394,7 +394,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 8145657951433033405, guid: eae44437f69cd7f43b4fd155b2c68957, type: 3}
       propertyPath: m_Name
-      value: Tree (2)
+      value: Tree
       objectReference: {fileID: 0}
     - target: {fileID: 8145657951433033405, guid: eae44437f69cd7f43b4fd155b2c68957, type: 3}
       propertyPath: m_TagString
@@ -712,7 +712,7 @@ Rigidbody:
   m_UseGravity: 1
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 0
+  m_Constraints: 116
   m_CollisionDetection: 0
 --- !u!136 &864448406
 CapsuleCollider:
@@ -770,9 +770,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a312ad2d721d4ba49a5788dc84009d06, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  resourceAmount: 0
-  respawnTime: 0
-  isDepleted: 0
+--- !u!65 &942530290
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 942530281}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 3.1882544, y: 4.1356516, z: 2.5068111}
+  m_Center: {x: -0.13576013, y: 2.0678258, z: -0.000000059604645}
 --- !u!1001 &969449769
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -955,7 +965,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1088989861936648174, guid: 04c5ac4946e112940b507a92a2be5b3f, type: 3}
       propertyPath: m_Name
-      value: Iron1
+      value: Iron
       objectReference: {fileID: 0}
     - target: {fileID: 1088989861936648174, guid: 04c5ac4946e112940b507a92a2be5b3f, type: 3}
       propertyPath: m_TagString
@@ -992,7 +1002,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3482e84ede62807479412f7f88ab52a9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _stoneCount: 0
+  iron: {fileID: 0}
+  wood: {fileID: 0}
+  stone: {fileID: 0}
+  stoneCount: 0
+  woodCount: 0
+  ironCount: 0
 --- !u!4 &1096171140
 Transform:
   m_ObjectHideFlags: 0
@@ -1422,7 +1437,7 @@ BoxCollider:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1884645297}
   m_Material: {fileID: 0}
-  m_IsTrigger: 1
+  m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
   m_Size: {x: 5.608764, y: 3.1753094, z: 2.4304976}
@@ -1439,9 +1454,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3c77aa3b08d7d594098faafc7e320d2f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  resourceAmount: 0
-  respawnTime: 0
-  isDepleted: 0
 --- !u!1 &1951557875 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 1088989861936648174, guid: 04c5ac4946e112940b507a92a2be5b3f, type: 3}
@@ -1472,9 +1484,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d2a4f25ce7a5ce04393121310f51375b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  resourceAmount: 0
-  respawnTime: 0
-  isDepleted: 0
+  <amount>k__BackingField: 0
+  <isDepleted>k__BackingField: 0
 --- !u!1 &2125055339 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 1338872188272143277, guid: 97d503c8c0082d6438dd0f47f4b68009, type: 3}
@@ -1492,9 +1503,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3c77aa3b08d7d594098faafc7e320d2f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  resourceAmount: 0
-  respawnTime: 0
-  isDepleted: 0
 --- !u!65 &2125055341
 BoxCollider:
   m_ObjectHideFlags: 0

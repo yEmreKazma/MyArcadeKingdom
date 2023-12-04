@@ -2,9 +2,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Metal : MonoBehaviour, ICollectible
+public class Iron : MonoBehaviour, ICollectible
 {
-    public string resourceName => "Wood";
+    public string resourceName => "Iron";
     public int amount { get; set; }
     public float collectTime => 1f;
     public float respawnTime => 45f;
@@ -15,26 +15,19 @@ public class Metal : MonoBehaviour, ICollectible
         amount = 5;
         isDepleted = false;
     }
-    /*public void Update()
-    {
-        if (amount <= 0)
-        {
-            isDepleted = true;
-        }
 
-    }*/
     public void Collect()
     {
-        Debug.Log("Metal Collected");
-        amount -= 1;
-        ResourceManager.Instance.MetalCollected();
+        amount--;
+        ResourceManager.Instance.ResourceCollected(resourceName);
         if (amount <= 0)
         {
             isDepleted = true;
-            Respawn();
+            Debug.Log("bitti");
+            //Respawn();
         }
     }
-    public void Respawn()
+    /*public void Respawn()
     {
         StartCoroutine(RespawnStone());
     }
@@ -44,5 +37,14 @@ public class Metal : MonoBehaviour, ICollectible
         Debug.Log("Metal Respawned");
         amount = 5;
         isDepleted = false;
+    }*/
+    /*public void Hit()
+    {
+        StartCoroutine(CollectTime());
     }
+    IEnumerator CollectTime()
+    {
+        yield return new WaitForSeconds(collectTime);
+        Debug.Log("vuruþ");
+    }*/
 }

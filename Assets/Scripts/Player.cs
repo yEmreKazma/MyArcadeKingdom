@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
+using static ToonyColorsPro.ShaderGenerator.Enums;
 
 public class Player : MonoBehaviour
 {
@@ -16,25 +17,26 @@ public class Player : MonoBehaviour
 
     private void Update()
     {
-        swordLevel = sword.level;
-        Debug.Log(swordLevel);
+        //swordLevel = sword.level;
+        //Debug.Log(swordLevel);
     }
-
-    private void OnTriggerStay(Collider other)
+    private void OnCollisionStay(Collision collision)
     {
-        //Spend some resources
-        if (other.CompareTag("Blacksmith"))
+        if (collision.transform.CompareTag("Collectible"))
         {
-            sword.Upgrade();
-        }
-
-        if (other.CompareTag("Collectible"))
-        {
-            Debug.Log("temas");
-            if(other.GameObject().name == "Stone")
+            if (collision.transform.GameObject().name == "Stone")
             {
-                ResourceManager.Instance.StoneCollected();
+                ResourceManager.Instance.stone.Collect();
+            }
+            if (collision.transform.GameObject().name == "Tree")
+            {
+                ResourceManager.Instance.wood.Collect();
+            }
+            if (collision.transform.GameObject().name == "Iron")
+            {
+                ResourceManager.Instance.iron.Collect();
             }
         }
     }
+
 }

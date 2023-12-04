@@ -15,26 +15,19 @@ public class Wood : MonoBehaviour, ICollectible
         amount = 5;
         isDepleted = false;
     }
-    /*public void Update()
-{
-    if (amount <= 0)
-    {
-        isDepleted = true;
-    }
-}*/
+
     public void Collect()
     {
         Debug.Log("Wood Collected");
-        amount -= 1;
-        ResourceManager.Instance.WoodCollected();
+        amount--;
         ResourceManager.Instance.ResourceCollected(resourceName);
         if (amount <= 0)
         {
             isDepleted = true;
-            Respawn();
+            //Respawn();
         }
     }
-    public void Respawn()
+    /*public void Respawn()
     {
         StartCoroutine(RespawnStone());
     }
@@ -44,5 +37,5 @@ public class Wood : MonoBehaviour, ICollectible
         Debug.Log("Tree Respawned");
         amount = 5;
         isDepleted = false;
-    }
+    }*/
 }
