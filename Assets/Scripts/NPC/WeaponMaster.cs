@@ -6,6 +6,4 @@ public class WeaponMaster : MonoBehaviour, INpc
 {
     public string npcName => "WeaponMaster";
 
-
-
 }

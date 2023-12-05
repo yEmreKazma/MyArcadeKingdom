@@ -17,7 +17,7 @@ public class Player : MonoBehaviour
     private void Update()
     {
         //swordLevel = sword.level;
-        //Debug.Log(swordLevel);
+        Debug.Log(sword.swordLevel);
     }
     private void OnCollisionStay(Collision collision)
     {
@@ -42,7 +42,24 @@ public class Player : MonoBehaviour
     {
         if (other.CompareTag("NPC"))
         {
-            if(other.GameObject().name == "WeaponMaster")
+            if(other.transform.GameObject().name == "WallMasterf")
+            {
+                if (sword.swordLevel == 1)
+                {
+                    sword.swordLevel++;
+                }
+            }
+        }
+        if (other.transform.GameObject().name == "Blacksmith")
+        {
+            if (sword.swordLevel == 1)
+            {
+                sword.swordLevel++;
+            }
+        }
+        if (other.transform.GameObject().name == "WeaponMaster")
+        {
+            if (sword.swordLevel == 1)
             {
                 sword.swordLevel++;
             }
