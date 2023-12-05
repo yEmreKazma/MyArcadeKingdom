@@ -17,6 +17,7 @@ public class Player : MonoBehaviour
     private void Update()
     {
         //swordLevel = sword.level;
+        //transform.GetChild(7).gameObject.SetActive(false);
         Debug.Log(sword.swordLevel);
     }
     private void OnCollisionStay(Collision collision)
@@ -29,6 +30,7 @@ public class Player : MonoBehaviour
             }
             if (collision.transform.GameObject().name == "Tree")
             {
+                transform.GetChild(7).gameObject.SetActive(true);
                 ResourceManager.Instance.wood.Collect();
             }
             if (collision.transform.GameObject().name == "Iron")
