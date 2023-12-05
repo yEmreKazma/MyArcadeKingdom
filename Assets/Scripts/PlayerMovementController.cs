@@ -10,6 +10,10 @@ public class PlayerMovementController : MonoBehaviour
     private FixedJoystick joystick;
     [SerializeField]
     private float moveSpeed = 5f;
+    [SerializeField]
+    private Transform playerTransform;
+    //[SerializeField]
+    //private AnimationController animController;
 
     private float horizontalMove = 0f;
     private float verticalMove = 0f;
@@ -22,6 +26,7 @@ public class PlayerMovementController : MonoBehaviour
     void FixedUpdate()
     {
         SetMovement();
+        setRotation();
     }
 
     private void SetMovement()
@@ -38,5 +43,13 @@ public class PlayerMovementController : MonoBehaviour
     {
         horizontalMove = joystick.Horizontal;
         verticalMove = joystick.Vertical;
+    }
+
+    private void setRotation()
+    {
+        if(horizontalMove !=0 ||verticalMove != 0)
+        {
+            playerTransform.rotation = Quaternion.LookRotation(GetNewVelocity());
+        }
     }
 }
