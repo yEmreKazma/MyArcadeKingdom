@@ -26,6 +26,7 @@ public class Player : MonoBehaviour
         {
             if (collision.transform.GameObject().name == "Stone")
             {
+                transform.GetChild(8).gameObject.SetActive(true);
                 ResourceManager.Instance.stone.Collect();
             }
             if (collision.transform.GameObject().name == "Tree")
@@ -35,6 +36,7 @@ public class Player : MonoBehaviour
             }
             if (collision.transform.GameObject().name == "Iron")
             {
+                transform.GetChild(8).gameObject.SetActive(true);
                 ResourceManager.Instance.iron.Collect();
             }
         }

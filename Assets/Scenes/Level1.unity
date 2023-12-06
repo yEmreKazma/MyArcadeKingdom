@@ -6672,7 +6672,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 800970567}
-  m_LocalRotation: {x: 0.32074517, y: -1e-45, z: 1e-45, w: 0.94716555}
+  m_LocalRotation: {x: 0.32074517, y: 3e-45, z: -1e-45, w: 0.94716555}
   m_LocalPosition: {x: 0, y: 8.1, z: 28}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -8101,7 +8101,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 335592768066035252, guid: 6758adad3cd841547b136af1fa1ae25d, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0
+      value: -0.49
       objectReference: {fileID: 0}
     - target: {fileID: 335592768066035252, guid: 6758adad3cd841547b136af1fa1ae25d, type: 3}
       propertyPath: m_LocalPosition.z
@@ -8221,7 +8221,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 935003444}
-  m_LocalRotation: {x: 0.32074517, y: -1e-45, z: 1e-45, w: 0.94716555}
+  m_LocalRotation: {x: 0.32074517, y: 3e-45, z: -1e-45, w: 0.94716555}
   m_LocalPosition: {x: 0, y: 8.1, z: 28}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -8563,6 +8563,18 @@ PrefabInstance:
     - target: {fileID: 1768827389099906195, guid: f6557d2a058a00d42bfb8e4bc06cd178, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4864470905773901759, guid: f6557d2a058a00d42bfb8e4bc06cd178, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7132617005825412082, guid: f6557d2a058a00d42bfb8e4bc06cd178, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7132617005825412082, guid: f6557d2a058a00d42bfb8e4bc06cd178, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.056
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f6557d2a058a00d42bfb8e4bc06cd178, type: 3}
