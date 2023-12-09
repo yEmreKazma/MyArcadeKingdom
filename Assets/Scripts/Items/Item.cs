@@ -2,8 +2,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public abstract class Item 
+public interface Item 
 {
-    public abstract void Use();
-    public abstract void Upgrade();
+    int level { get; set; }
+    public void Use();
+    public void Upgrade();
 }

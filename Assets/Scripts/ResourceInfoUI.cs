@@ -5,17 +5,15 @@ using UnityEngine;
 
 public class ResourceInfoUI : MonoBehaviour
 {
-    public TextMeshProUGUI resourceText;
-    void Start()
-    {
-        
-    }
+    public TextMeshProUGUI woodCount;
+    public TextMeshProUGUI ironCount;
+    public TextMeshProUGUI stoneCount;
 
     // Update is called once per frame
     void Update()
     {
-        resourceText.text = "Taþ sayýsý : " + ResourceManager.Instance.stoneCount +
-            "Odun sayýsý : " + ResourceManager.Instance.woodCount +
-            "Demir sayýsý : " + ResourceManager.Instance.ironCount;
+        woodCount.text = ResourceManager.Instance.woodCount.ToString();
+        ironCount.text = ResourceManager.Instance.ironCount.ToString();
+        stoneCount.text = ResourceManager.Instance.stoneCount.ToString();
     }
 }

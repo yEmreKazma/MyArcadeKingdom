@@ -2,22 +2,21 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Axe : Item
+public class Axe : MonoBehaviour, Item
 {
-    int axeLevel;
+    public int level { get; set; }
 
     void Start()
     {
-
-        axeLevel = 1;
-        Debug.Log("Axe Starting Level : " + axeLevel);
+        level = 1;
+        Debug.Log("Axe Starting Level : " + level);
     }
-    public override void Upgrade()
+    public void Upgrade()
     {
-        axeLevel++;
+        level++;
     }
 
-    public override void Use()
+    public void Use()
     {
         Debug.Log("Axe used on Tree");
     }

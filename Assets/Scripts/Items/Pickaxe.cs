@@ -2,15 +2,16 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Pickaxe : Item
+public class Pickaxe : MonoBehaviour, Item
 {
-    int pickaxeLevel;
-    public override void Upgrade()
+    public int level { get; set; }
+
+    public void Upgrade()
     {
-        pickaxeLevel++;
+        level++;
     }
 
-    public override void Use()
+    public void Use()
     {
         Debug.Log("Pickaxe used on Minerals");
     }
@@ -19,8 +20,8 @@ public class Pickaxe : Item
     void Start()
     {
 
-        pickaxeLevel = 1;
-        Debug.Log("Pickaxe Starting Level : " + pickaxeLevel);
+        level = 1;
+        Debug.Log("Pickaxe Starting Level : " + level);
     }
 
 }

@@ -2,23 +2,27 @@ using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.EventSystems;
 using static ToonyColorsPro.ShaderGenerator.Enums;
 
 public class Player : MonoBehaviour
 {
-    //Tüm kodlar test amacýyla eklenmiþtir.
-    public Sword sword;
-
+    public Item sword;
+    public Axe axe;
+    public Item pickaxe;
     private void Start()
     {
         sword = new Sword();
+
+        pickaxe = new Pickaxe();    
+        
     }
 
     private void Update()
     {
         //swordLevel = sword.level;
         //transform.GetChild(7).gameObject.SetActive(false);
-        Debug.Log(sword.swordLevel);
+        Debug.Log(sword.level);
     }
     private void OnCollisionStay(Collision collision)
     {
@@ -31,7 +35,7 @@ public class Player : MonoBehaviour
             }
             if (collision.transform.GameObject().name == "Tree")
             {
-                transform.GetChild(7).gameObject.SetActive(true);
+                axe.gameObject.SetActive(true);
                 ResourceManager.Instance.wood.Collect();
             }
             if (collision.transform.GameObject().name == "Iron")
@@ -48,24 +52,24 @@ public class Player : MonoBehaviour
         {
             if(other.transform.GameObject().name == "WallMasterf")
             {
-                if (sword.swordLevel == 1)
+                if (sword.level == 1)
                 {
-                    sword.swordLevel++;
+                    sword.level++;
                 }
             }
         }
         if (other.transform.GameObject().name == "Blacksmith")
         {
-            if (sword.swordLevel == 1)
+            if (sword.level == 1)
             {
-                sword.swordLevel++;
+                sword.level++;
             }
         }
         if (other.transform.GameObject().name == "WeaponMaster")
         {
-            if (sword.swordLevel == 1)
+            if (sword.level == 1)
             {
-                sword.swordLevel++;
+                sword.level++;
             }
         }
     }

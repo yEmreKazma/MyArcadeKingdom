@@ -7,7 +7,7 @@ public class PlayerMovementController : MonoBehaviour
     [SerializeField]
     private Rigidbody rb;
     [SerializeField]
-    private FixedJoystick joystick;
+    private DynamicJoystick joystick;
     [SerializeField]
     private float moveSpeed = 5f;
     [SerializeField]

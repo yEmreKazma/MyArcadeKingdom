@@ -2,15 +2,16 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Sword : Item
+public class Sword : MonoBehaviour, Item
 {
-    public int swordLevel=1;
-    public override void Upgrade()
+    public int level { get; set; }
+
+    public void Upgrade()
     {
-        swordLevel++;
+        level++;
     }
 
-    public override void Use()
+    public void Use()
     {
         Debug.Log("Sword used on Enemy");
     }
@@ -18,7 +19,7 @@ public class Sword : Item
     // Start is called before the first frame update
     void Start()
     {
-        Debug.Log("Sword Starting Level : " + swordLevel);
+        Debug.Log("Sword Starting Level : " + level);
     }
 
 }
