@@ -12,6 +12,8 @@ public class ResourceManager : MonoBehaviour
     public int woodCount;
     public int ironCount;
 
+    public GameObject woodPiecePrefab;
+    GameObject woodEffect;
     public static ResourceManager Instance;
 
     private void Awake()
@@ -28,30 +30,28 @@ public class ResourceManager : MonoBehaviour
     }
     void Start()
     {
-        stone = new Stone();
-        wood = new Wood();
-        iron = new Iron();
-
         stoneCount = 0;
         woodCount = 0;
         ironCount = 0;
     }
+
+
+
     public void ResourceCollected(string resource)
     {
         if(resource == "Wood")
         {
-            woodCount++;
-            Debug.Log("wood count : " + woodCount);
+            woodEffect = Instantiate(woodPiecePrefab, transform.position, Quaternion.identity);
+            //woodCount++;
+            wood.Collect();
         }
         else if (resource == "Stone")
         {
-            stoneCount++;
-            Debug.Log("stone count : " + stoneCount);
+            stone.Collect();
         }
         else if (resource == "Iron")
         {
             ironCount++;
-            Debug.Log("metal count : " + ironCount);
         }
     }
 

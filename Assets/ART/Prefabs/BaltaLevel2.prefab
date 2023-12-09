@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 1994938757610047937}
   - component: {fileID: 3170720709874714212}
   - component: {fileID: 856914172386898606}
+  - component: {fileID: 4603516036778254417}
   m_Layer: 0
   m_Name: BaltaLevel2
   m_TagString: Untagged
@@ -83,3 +84,15 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!114 &4603516036778254417
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1217276566148600699}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4d8c6484a28edd54f9093f7b44abe08a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

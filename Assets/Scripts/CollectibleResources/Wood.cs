@@ -10,6 +10,9 @@ public class Wood : MonoBehaviour, ICollectible
     public float respawnTime => 45f;
     public bool isDepleted { get; set; }
 
+    public GameObject woodPiecePrefab;
+    GameObject woodEffect;
+
     public void Start()
     {
         amount = 5;
@@ -20,7 +23,8 @@ public class Wood : MonoBehaviour, ICollectible
     {
         Debug.Log("Wood Collected");
         amount--;
-        ResourceManager.Instance.ResourceCollected(resourceName);
+        ResourceManager.Instance.woodCount++;
+        woodEffect = Instantiate(woodPiecePrefab, transform.position, Quaternion.identity);
         if (amount <= 0)
         {
             isDepleted = true;
