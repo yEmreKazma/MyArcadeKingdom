@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Axe : MonoBehaviour, Item
+public class Axe : MonoBehaviour, IItem
 {
     public int level { get; set; }
 

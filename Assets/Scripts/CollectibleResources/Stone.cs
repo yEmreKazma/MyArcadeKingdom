@@ -15,20 +15,25 @@ public class Stone : MonoBehaviour, ICollectible
         isDepleted = false;
     }
 
+    private void OnCollisionStay(Collision collision)
+    {
+        if (collision.transform.CompareTag("Player"))
+        {
+            Collect();
+        }
+    }
+
     public void Collect()
     {
 
-            Debug.Log("Stone Collected");
-            amount--;
-            ResourceManager.Instance.stoneCount++;
-            if (amount <= 0)
-            {
-                isDepleted = true;
-                //Respawn();
-            }
-       
-
-
+        Debug.Log("Stone Collected");
+        amount--;
+        ResourceManager.Instance.stoneCount++; 
+        if (amount <= 0)
+        {
+            isDepleted = true;
+            //Respawn();
+        }
     }
 
     /*

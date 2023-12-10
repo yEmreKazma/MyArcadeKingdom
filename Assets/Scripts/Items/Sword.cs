@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Sword : MonoBehaviour, Item
+public class Sword : MonoBehaviour, IItem
 {
     public int level { get; set; }
 

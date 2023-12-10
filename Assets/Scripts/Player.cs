@@ -11,32 +11,6 @@ public class Player : MonoBehaviour
     public Axe axe;
     public Pickaxe pickaxe;
 
-    private void OnCollisionStay(Collision collision)
-    {
-        if (collision.transform.CompareTag("Collectible"))
-        {
-            if (collision.transform.GameObject().name == "Stone")
-            {
-
-                pickaxe.gameObject.SetActive(true);
-                ResourceManager.Instance.ResourceCollected("Stone");
-                //ResourceManager.Instance.stone.Collect();
-            }
-            if (collision.transform.GameObject().name == "Tree")
-            {
-                axe.gameObject.SetActive(true);
-
-                ResourceManager.Instance.wood.Collect();
-            }
-            if (collision.transform.GameObject().name == "Iron")
-            {
-                pickaxe.gameObject.SetActive(true);
-                ResourceManager.Instance.iron.Collect();
-            }
-        }
-    }
-
-
     private void OnTriggerEnter(Collider other)
     {
         if (other.CompareTag("NPC"))

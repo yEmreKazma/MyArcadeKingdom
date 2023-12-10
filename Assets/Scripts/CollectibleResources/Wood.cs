@@ -1,6 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
+using static UnityEditor.IMGUI.Controls.PrimitiveBoundsHandle;
 
 public class Wood : MonoBehaviour, ICollectible
 {
@@ -17,6 +19,14 @@ public class Wood : MonoBehaviour, ICollectible
     {
         amount = 5;
         isDepleted = false;
+    }
+
+    private void OnCollisionStay(Collision collision)
+    {
+        if (collision.transform.CompareTag("Player"))
+        {
+            Collect();
+        }
     }
 
     public void Collect()

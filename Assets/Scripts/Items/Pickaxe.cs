@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Pickaxe : MonoBehaviour, Item
+public class Pickaxe : MonoBehaviour, IItem
 {
     public int level { get; set; }
 

@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public interface Item 
+public interface IItem 
 {
     int level { get; set; }
     public void Use();

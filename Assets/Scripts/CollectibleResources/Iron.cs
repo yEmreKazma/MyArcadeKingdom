@@ -16,14 +16,23 @@ public class Iron : MonoBehaviour, ICollectible
         isDepleted = false;
     }
 
+    private void OnCollisionStay(Collision collision)
+    {
+        if (collision.transform.CompareTag("Player"))
+        {
+            Collect();
+        }
+    }
+
     public void Collect()
     {
+        Debug.Log("Iron Collected");
         amount--;
-        ResourceManager.Instance.ResourceCollected(resourceName);
+        ResourceManager.Instance.ironCount++;
+        
         if (amount <= 0)
         {
             isDepleted = true;
-            Debug.Log("bitti");
             //Respawn();
         }
     }
