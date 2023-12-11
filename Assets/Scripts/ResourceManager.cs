@@ -13,7 +13,6 @@ public class ResourceManager : MonoBehaviour
     public int ironCount;
 
     public GameObject woodPiecePrefab;
-    GameObject woodEffect;
     public static ResourceManager Instance;
 
     private void Awake()
@@ -21,12 +20,12 @@ public class ResourceManager : MonoBehaviour
         if (Instance == null)
         {
             Instance = this;
-            DontDestroyOnLoad(gameObject);
+            //DontDestroyOnLoad(gameObject);
         }
-        else
+        /*else
         {
-            Destroy(gameObject);
-        }
+            //Destroy(gameObject);
+        }*/
     }
     void Start()
     {
@@ -41,8 +40,6 @@ public class ResourceManager : MonoBehaviour
     {
         if(resource == "Wood")
         {
-            woodEffect = Instantiate(woodPiecePrefab, transform.position, Quaternion.identity);
-            //woodCount++;
             wood.Collect();
         }
         else if (resource == "Stone")

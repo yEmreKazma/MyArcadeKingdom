@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 2428285675596908320}
   - component: {fileID: 457106279279588330}
   - component: {fileID: 4260986923245920900}
+  - component: {fileID: 4538788543305935253}
   m_Layer: 0
   m_Name: Tree1
   m_TagString: Collectible
@@ -96,4 +97,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a312ad2d721d4ba49a5788dc84009d06, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  woodPiecePrefab: {fileID: 8925489067191915505, guid: 5a0a44e8b5df59845869d36069074d63, type: 3}
+  woodPiecePrefab: {fileID: 8192977116379336721, guid: 5a0a44e8b5df59845869d36069074d63, type: 3}
+  target: {fileID: 0}
+--- !u!114 &4538788543305935253
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2114171525432136255}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e893fa4a8407b2147a239bb8aea4636a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  resourcePrefab: {fileID: 8925489067191915505, guid: 5a0a44e8b5df59845869d36069074d63, type: 3}
