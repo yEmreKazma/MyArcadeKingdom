@@ -106,6 +106,7 @@ GameObject:
   m_Component:
   - component: {fileID: 495665526239266348}
   - component: {fileID: 5764847212401777750}
+  - component: {fileID: 4575527491651729036}
   m_Layer: 0
   m_Name: villager2
   m_TagString: Untagged
@@ -145,7 +146,7 @@ Animator:
   m_GameObject: {fileID: 984922205669710998}
   m_Enabled: 1
   m_Avatar: {fileID: 9000000, guid: 4577cda2ecfe139468bb64e8aad981e2, type: 3}
-  m_Controller: {fileID: 9100000, guid: a068bb59d1a83a94388638d78e245940, type: 2}
+  m_Controller: {fileID: 9100000, guid: 048fe7d979b64e94d875a19756ec930e, type: 2}
   m_CullingMode: 1
   m_UpdateMode: 0
   m_ApplyRootMotion: 1
@@ -156,6 +157,20 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!136 &4575527491651729036
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 984922205669710998}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  m_Radius: 0.5
+  m_Height: 2.396174
+  m_Direction: 1
+  m_Center: {x: 0, y: 0.698087, z: 0}
 --- !u!1 &1033429554540094382
 GameObject:
   m_ObjectHideFlags: 0
@@ -1520,17 +1535,17 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6945485758912403605}
-  m_LocalRotation: {x: 0, y: 1, z: 0, w: 0}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalRotation: {x: -0, y: 0.0018087584, z: -0, w: -0.99999845}
+  m_LocalPosition: {x: 0, y: 0, z: 0.000011444092}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 495665526239266348}
   m_RootOrder: 6
-  m_LocalEulerAnglesHint: {x: 0, y: 180, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 359.793, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 2.243}
+  m_AnchoredPosition: {x: 0.0030949116, y: 2.243}
   m_SizeDelta: {x: 2.057, y: 0.4663}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!23 &249792075361257178
