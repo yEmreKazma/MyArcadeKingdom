@@ -28,22 +28,15 @@ public class Player : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("Collectible"))
         {
-            animator.SetBool("IsCollecting", true);
-        }
-        else
-        {
-            animator.SetBool("IsCollecting", false);
+            TryCollect();
         }
     }
 
-    void TryAttack()
+    void TryCollect()
     {
         if (canCollect)
         {
-            // Ok at
             Collect();
-
-            // Saldýrý hýzýný kontrol etmek için bekleme süresi ekle
             StartCoroutine(CollectCooldown());
         }
     }
@@ -54,11 +47,11 @@ public class Player : MonoBehaviour
         isCollecting = true;
     }
 
-    void Collect()
+    void Collect(string resource)
     {
-
+        ResourceManager.Instance.ResourceCollected(resource);
     }
-
+    
     private void OnTriggerEnter(Collider other)
     {
         if (other.CompareTag("NPC"))
