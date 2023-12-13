@@ -12,15 +12,27 @@ public class PlayerMovementController : MonoBehaviour
     private float moveSpeed = 5f;
     [SerializeField]
     private Transform playerTransform;
-    //[SerializeField]
-    //private AnimationController animController;
+    Animator animator;
 
     private float horizontalMove = 0f;
     private float verticalMove = 0f;
 
+    private void Start()
+    {
+        rb = GetComponent<Rigidbody>();
+        animator = GetComponent<Animator>();
+    }
     private void Update()
     {
         GetMovementInput();
+        if(horizontalMove != 0 || verticalMove !=0)
+        {
+            animator.SetBool("IsRunning",true);
+        }
+        else
+        {
+            animator.SetBool("IsRunning", false);
+        }
     }
     // Update is called once per frame
     void FixedUpdate()

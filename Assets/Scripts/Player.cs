@@ -11,6 +11,54 @@ public class Player : MonoBehaviour
     public Axe axe;
     public Pickaxe pickaxe;
 
+    Rigidbody rb;
+    Animator animator;
+
+    bool isCollecting;
+    bool canCollect;
+    float collectCooldown=1f;
+
+    private void Start()
+    {
+        rb = GetComponent<Rigidbody>();
+        animator = GetComponent<Animator>();    
+    }
+
+    private void OnCollisionStay(Collision collision)
+    {
+        if (collision.gameObject.CompareTag("Collectible"))
+        {
+            animator.SetBool("IsCollecting", true);
+        }
+        else
+        {
+            animator.SetBool("IsCollecting", false);
+        }
+    }
+
+    void TryAttack()
+    {
+        if (canCollect)
+        {
+            // Ok at
+            Collect();
+
+            // Saldýrý hýzýný kontrol etmek için bekleme süresi ekle
+            StartCoroutine(CollectCooldown());
+        }
+    }
+    IEnumerator CollectCooldown()
+    {
+        isCollecting = false;
+        yield return new WaitForSeconds(collectCooldown);
+        isCollecting = true;
+    }
+
+    void Collect()
+    {
+
+    }
+
     private void OnTriggerEnter(Collider other)
     {
         if (other.CompareTag("NPC"))

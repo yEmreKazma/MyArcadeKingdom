@@ -68,22 +68,17 @@ public class Archer : MonoBehaviour
     {
         if (arrowPrefab != null && arrowSpawnPoint != null)
         {
-            // Okun kopyasýný oluþtur ve ileriye doðru fýrlat
             GameObject arrow = Instantiate(arrowPrefab, arrowSpawnPoint.position, arrowSpawnPoint.rotation);
             arrow.transform.up = arrowSpawnPoint.forward;
             Rigidbody arrowRb = arrow.GetComponent<Rigidbody>();
             arrow.GetComponent<Arrow>().StartChase(enemyTarget);
-            //arrowRb.AddForce(arrowSpawnPoint.forward * 10f, ForceMode.Impulse);
         }
     }
 
     IEnumerator AttackCooldown()
     {
-        canAttack = false;
-
-        // Belirli bir süre boyunca saldýrý yapma yeteneðini kapat
+        canAttack = false;     
         yield return new WaitForSeconds(attackCooldown);
-
         canAttack = true;
     }
 }

@@ -15,7 +15,7 @@ public class Wood : MonoBehaviour, ICollectible
 
     public WoodPiece woodPiecePrefab;
     public Player target;
-
+    bool isCollecting;
     bool eventGiven;
 
     public void Start()
@@ -46,6 +46,7 @@ public class Wood : MonoBehaviour, ICollectible
 
     public void Collect()
     {
+        
         if (amount > 0)
         {
             amount--;
