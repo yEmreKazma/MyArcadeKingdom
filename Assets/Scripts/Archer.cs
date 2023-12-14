@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Assertions.Must;
 //using DG.Tweening;
 
 public class Archer : MonoBehaviour
@@ -24,27 +25,21 @@ public class Archer : MonoBehaviour
         Collider[] hitColliders = Physics.OverlapSphere(transform.position, attackRange);
         bool isFounded = false;
         int iterator = 0;
-        while(isFounded == false)
+        while (isFounded == false)
         {
-           int y = Random.Range(0, hitColliders.Length);
+            int y = Random.Range(0, hitColliders.Length);
             if (hitColliders[y].CompareTag("Enemy"))
             {
                 isFounded = true;
+                target = hitColliders[y].gameObject;
+                enemyTarget = target.transform;
+                transform.LookAt(target.transform);
 
+                TryAttack();
 
-                    // Düþmaný bulduk
-                    target = hitColliders[y].gameObject;
-
-                    enemyTarget = target.transform;
-                    // Düþmanýn yönüne doðru bak
-                    transform.LookAt(target.transform);
-
-                    TryAttack();
-
-                
             }
             iterator++;
-            if(iterator > 40)
+            if (iterator > 40)
             {
                 break;
             }
@@ -56,11 +51,8 @@ public class Archer : MonoBehaviour
     {
         if (canAttack)
         {
-            // Ok at
             ShootArrow();
-
-            // Saldýrý hýzýný kontrol etmek için bekleme süresi ekle
-          StartCoroutine(AttackCooldown());
+            StartCoroutine(AttackCooldown());
         }
     }
 
@@ -77,7 +69,7 @@ public class Archer : MonoBehaviour
 
     IEnumerator AttackCooldown()
     {
-        canAttack = false;     
+        canAttack = false;
         yield return new WaitForSeconds(attackCooldown);
         canAttack = true;
     }

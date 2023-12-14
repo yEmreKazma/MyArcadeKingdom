@@ -19,13 +19,9 @@ public class ResourceManager : MonoBehaviour
     {
         if (Instance == null)
         {
-            Instance = this;
-            //DontDestroyOnLoad(gameObject);
+            Instance = this;         
         }
-        /*else
-        {
-            //Destroy(gameObject);
-        }*/
+
     }
     void Start()
     {
@@ -33,9 +29,6 @@ public class ResourceManager : MonoBehaviour
         woodCount = 0;
         ironCount = 0;
     }
-
-
-
     public void ResourceCollected(string resource)
     {
         if(resource == "Wood")
@@ -48,7 +41,7 @@ public class ResourceManager : MonoBehaviour
         }
         else if (resource == "Iron")
         {
-            ironCount++;
+           iron.Collect();
         }
     }
 

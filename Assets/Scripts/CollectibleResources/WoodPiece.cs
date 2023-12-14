@@ -11,6 +11,7 @@ public class WoodPiece : MonoBehaviour
     void Update()
     {
         FollowPlayer();
+        targetPlayer = GameObject.FindGameObjectWithTag("Player");
     }
 
     public void FollowPlayer()

@@ -15,8 +15,7 @@ public class Wood : MonoBehaviour, ICollectible
 
     public WoodPiece woodPiecePrefab;
     public Player target;
-    bool isCollecting;
-    bool eventGiven;
+    bool canRespawn = true;
 
     public void Start()
     {
@@ -26,58 +25,57 @@ public class Wood : MonoBehaviour, ICollectible
 
     private void Update()
     {
-       
+        //TryRespawn();
     }
-
-    private void OnCollisionStay(Collision collision)
-    {
-        if (eventGiven)
-        {
-            return;
-        }
-        if (collision.transform.CompareTag("Player"))
-        {
-            eventGiven = true;
-            //Invoke("Collect", collectTime);
-            InvokeRepeating("Collect", 0f, collectTime);
-            //Collect();
-        }
-    }
-
     public void Collect()
     {
-        
+        ResourceManager.Instance.woodCount += 1 ;
         if (amount > 0)
         {
-            amount--;
+            amount -= 1;
             ResourceManager.Instance.woodCount++;
-            SpawnTreePiece();
+            //SpawnTreePiece();
             Debug.Log("Wood Collected");
 
-
         }
-        else if (amount < 1){
-            Debug.Log("Tree Depleted");
-            CancelInvoke("Collect");
-            isDepleted = true;
+        if (amount < 1)
+        {
+            Debug.Log("Wood");
 
-            Invoke("Respawn", respawnTime);
-            transform.gameObject.SetActive(false);
-        }               
-        eventGiven = false;
+        }   
     }
 
+    /*void TryRespawn()
+    {
+        Respawn();
+        StartCoroutine(RespawnCooldown());
+
+    }
+    public void Respawn()
+    {
+        Debug.Log("Tree Respawned");
+        amount = 5;
+    }
+    
+    
     void SpawnTreePiece()
     {
         var woodPiece = Instantiate(woodPiecePrefab, transform.position, Quaternion.identity);
         woodPiece.targetPlayer = target.gameObject;
         woodPiece.FollowPlayer();
     }
-    public void Respawn()
+    
+    void TreeDepleted(bool status)
     {
-        isDepleted = false;
-        Debug.Log("Tree Respawned");
-        transform.gameObject.SetActive(true);
-        amount = 5;
+        Debug.Log("Tree Depleted");
+        isDepleted = status;
     }
+
+
+    IEnumerator RespawnCooldown()
+    {
+        canRespawn = false;
+        yield return new WaitForSeconds(respawnTime);
+        canRespawn = true;
+    }*/
 }

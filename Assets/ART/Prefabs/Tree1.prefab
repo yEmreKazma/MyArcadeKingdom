@@ -11,8 +11,8 @@ GameObject:
   - component: {fileID: 1593389580341512325}
   - component: {fileID: 2428285675596908320}
   - component: {fileID: 457106279279588330}
-  - component: {fileID: 4260986923245920900}
-  - component: {fileID: 4538788543305935253}
+  - component: {fileID: 5586645279338061943}
+  - component: {fileID: -6309917292106755315}
   m_Layer: 0
   m_Name: Tree1
   m_TagString: Collectible
@@ -85,7 +85,20 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!114 &4260986923245920900
+--- !u!65 &5586645279338061943
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2114171525432136255}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 2.9612277, y: 3.6215346, z: 2.9612277}
+  m_Center: {x: 0, y: 1.8107673, z: 0}
+--- !u!114 &-6309917292106755315
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -98,17 +111,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   woodPiecePrefab: {fileID: 8192977116379336721, guid: 5a0a44e8b5df59845869d36069074d63, type: 3}
-  target: {fileID: 0}
---- !u!114 &4538788543305935253
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2114171525432136255}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e893fa4a8407b2147a239bb8aea4636a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  resourcePrefab: {fileID: 8925489067191915505, guid: 5a0a44e8b5df59845869d36069074d63, type: 3}
+  target: {fileID: 6607123726078057648, guid: 3eb51a53b3843bd4a8b9ef61677a1bf7, type: 3}
