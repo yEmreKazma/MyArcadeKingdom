@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Globalization;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.EventSystems;
@@ -13,11 +14,13 @@ public class Player : MonoBehaviour
 
     Rigidbody rb;
     Animator animator;
+    ICollectible collectible;
 
     bool isCollecting;
     bool canCollect;
-    float collectCooldown = 2f;
+    float collectCooldown = 20f;
 
+    string collectType;
     private void Start()
     {
         rb = GetComponent<Rigidbody>();
@@ -25,13 +28,33 @@ public class Player : MonoBehaviour
     }
 
 
-    void OnTriggerStay(Collider other)
+    void OnTriggerEnter(Collider other)
     {
-        Debug.Log("Triggered");
         if (other.gameObject.CompareTag("Collectible"))
         {
-            StartCoroutine(CollectCooldown(other));
+
+            animator.SetBool("IsCollecting", true);
+
+            switch (other.gameObject.name)
+            {
+                case "Tree":
+                    axe.gameObject.SetActive(true);
+                    collectType = "Wood";
+                    collectible = other.GetComponent<Wood>();
+                    break;
+                case "Stone":
+                    pickaxe.gameObject.SetActive(true);
+                    collectType = "Stone";
+                    collectible = other.GetComponent<Stone>();
+                    break;
+                case "Iron":
+                    pickaxe.gameObject.SetActive(true);
+                    collectType = "Iron";
+                    collectible = other.GetComponent<Iron>();
+                    break;
+            }
         }
+
         if (other.CompareTag("NPC"))
         {
             if (other.transform.GameObject().name == "WallMaster")
@@ -72,35 +95,34 @@ public class Player : MonoBehaviour
 
     }
 
-
     IEnumerator CollectCooldown(Collider other)
     {
         Debug.Log("Collecting");
 
-        yield return new WaitForSeconds(collectCooldown);
-
         animator.SetBool("IsCollecting", true);
         if (other.gameObject.name == "Tree")
         {
+            Debug.Log(other.gameObject.name);
             axe.gameObject.SetActive(true);
-            Collect("Wood");
+            collectType = "Wood";
         }
         else if (other.gameObject.name == "Stone")
         {
             pickaxe.gameObject.SetActive(true);
-            Collect("Stone");
+            collectType = "Stone";
         }
         else if (other.gameObject.name == "Iron")
         {
             pickaxe.gameObject.SetActive(true);
-            Collect("Iron");
-        }
 
+            collectType = "Iron";
+        }
+        yield return new WaitForSeconds(collectCooldown);
     }
 
-    void Collect(string resource)
+    void Collect()
     {
-        ResourceManager.Instance.ResourceCollected(resource);
+        ResourceManager.Instance.ResourceCollected(collectType, collectible);
     }
 
     /*private void OnTriggerEnter(Collider other)

@@ -4,9 +4,9 @@ using UnityEngine;
 
 public class ResourceManager : MonoBehaviour
 {
-    public Iron iron;
-    public Wood wood;
-    public Stone stone;
+    public ICollectible iron;
+    public ICollectible wood;
+    public ICollectible stone;
 
     public int stoneCount;
     public int woodCount;
@@ -29,18 +29,21 @@ public class ResourceManager : MonoBehaviour
         woodCount = 0;
         ironCount = 0;
     }
-    public void ResourceCollected(string resource)
+    public void ResourceCollected(string resource, ICollectible collectedResource)
     {
         if(resource == "Wood")
         {
+            wood = collectedResource;
             wood.Collect();
         }
         else if (resource == "Stone")
         {
+            stone = collectedResource;
             stone.Collect();
         }
         else if (resource == "Iron")
         {
+           iron = collectedResource;
            iron.Collect();
         }
     }

@@ -5,14 +5,15 @@ using UnityEngine;
 public class Iron : MonoBehaviour, ICollectible
 {
     public string resourceName => "Iron";
-    public int amount { get; set; }
-    public float collectTime => 1f;
+    //public int amount { get; set; }
     public float respawnTime => 45f;
     public bool isDepleted { get; set; }
 
+    public int amount { get; set; } = 5;
+
     public void Start()
     {
-        amount = 5;
+
         isDepleted = false;
     }
 
@@ -26,15 +27,13 @@ public class Iron : MonoBehaviour, ICollectible
 
     public void Collect()
     {
-        Debug.Log("Iron Collected");
-        amount--;
+
         ResourceManager.Instance.ironCount++;
         
-        if (amount <= 0)
-        {
+
             isDepleted = true;
             //Respawn();
-        }
+        
     }
     /*public void Respawn()
     {
@@ -47,13 +46,5 @@ public class Iron : MonoBehaviour, ICollectible
         amount = 5;
         isDepleted = false;
     }*/
-    /*public void Hit()
-    {
-        StartCoroutine(CollectTime());
-    }
-    IEnumerator CollectTime()
-    {
-        yield return new WaitForSeconds(collectTime);
-        Debug.Log("vuruþ");
-    }*/
+
 }

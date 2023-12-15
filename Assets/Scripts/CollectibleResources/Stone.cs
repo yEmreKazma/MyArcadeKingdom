@@ -5,13 +5,15 @@ using UnityEngine;
 public class Stone : MonoBehaviour, ICollectible
 {
     public string resourceName => "Stone";
-    public int amount { get; set; }
-    public float collectTime => 3f;
+    //public int amount { get; set; }
     public float respawnTime => 45f;
     public bool isDepleted { get; set; }
+
+    public int amount { get; set; } = 5;
+
     public void Start()
     {
-        amount = 5;
+       
         isDepleted = false;
     }
 
@@ -26,14 +28,11 @@ public class Stone : MonoBehaviour, ICollectible
     public void Collect()
     {
 
-        Debug.Log("Stone Collected");
-        amount--;
         ResourceManager.Instance.stoneCount++; 
-        if (amount <= 0)
-        {
+  Debug.Log("Stone Depleted");
             isDepleted = true;
             //Respawn();
-        }
+        
     }
 
     /*

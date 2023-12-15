@@ -9,7 +9,7 @@ public class Axe : MonoBehaviour, IItem
     void Start()
     {
         level = 1;
-        Debug.Log("Axe Starting Level : " + level);
+        //Debug.Log("Axe Starting Level : " + level);
     }
     public void Upgrade()
     {
