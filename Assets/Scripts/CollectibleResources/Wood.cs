@@ -9,7 +9,7 @@ using System.CodeDom.Compiler;
 public class Wood : MonoBehaviour, ICollectible
 {
     public string resourceName => "Wood";
-    public float respawnTime => 15f;
+    public float respawnTime => 20f;
     public bool isDepleted { get; set; }
     public int amount { get; set; }
 
@@ -24,33 +24,41 @@ public class Wood : MonoBehaviour, ICollectible
     }
     public void Collect()
     {
-        if(amount > 0)
+        if (!isDepleted)
         {
-            ResourceManager.Instance.woodCount++;
-            amount--;
+            if (amount > 1)
+            {
+                ResourceManager.Instance.woodCount++;
+                amount--;
+                SpawnTreePiece();
+            }
+            else if (amount <= 1)
+            {
+                ResourceManager.Instance.woodCount++;
+                amount--;
+                target.animator.SetBool("IsCollecting", false);
+                target.axe.gameObject.SetActive(false);
+                Debug.Log("Wood Depleted");
+                Debug.Log(amount);
+                isDepleted = true;
+                gameObject.GetComponent<Collider>().enabled = false;
+                gameObject.GetComponent<MeshRenderer>().enabled = false;
+                canRespawn = true;
+                TryRespawn();
+            }
         }
-        else if (amount < 1)
-        {
-            Debug.Log("Wood Depleted");
-            Debug.Log(amount);
-            isDepleted = true;
-            gameObject.SetActive(false);
-            TryRespawn();
-        }
-
     }
 
     void TryRespawn()
      {
-        if (canRespawn)
-        {
             StartCoroutine(RespawnCooldown());
-        }
     }
      public void Respawn()
      {
-        gameObject.SetActive(true);
-         Debug.Log("Tree Respawned");
+        gameObject.GetComponent<Collider>().enabled = true;
+        gameObject.GetComponent<MeshRenderer>().enabled = true;
+        Debug.Log("Tree Respawned");
+        isDepleted = false;
          amount = 5;
      }
 
@@ -59,22 +67,15 @@ public class Wood : MonoBehaviour, ICollectible
      {
         canRespawn = false;
         yield return new WaitForSeconds(respawnTime);
+        Respawn();
         canRespawn = true;
     }
-    /*
-
+   
      void SpawnTreePiece()
      {
          var woodPiece = Instantiate(woodPiecePrefab, transform.position, Quaternion.identity);
          woodPiece.targetPlayer = target.gameObject;
          woodPiece.FollowPlayer();
      }
-
-     void TreeDepleted(bool status)
-     {
-         Debug.Log("Tree Depleted");
-         isDepleted = status;
-     }
-    */
-
+   
 }

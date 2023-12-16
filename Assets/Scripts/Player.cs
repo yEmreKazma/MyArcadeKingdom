@@ -13,16 +13,17 @@ public class Player : MonoBehaviour
     public Pickaxe pickaxe;
 
     Rigidbody rb;
-    Animator animator;
+    public Animator animator;
     ICollectible collectible;
 
     bool isCollecting;
-    bool canCollect;
+    public bool canCollect;
     float collectCooldown = 20f;
 
     string collectType;
     private void Start()
     {
+        canCollect = true;
         rb = GetComponent<Rigidbody>();
         animator = GetComponent<Animator>();
     }
@@ -105,6 +106,10 @@ public class Player : MonoBehaviour
             Debug.Log(other.gameObject.name);
             axe.gameObject.SetActive(true);
             collectType = "Wood";
+            if (other.gameObject == null)
+            {
+                animator.SetBool("IsCollecting", false);
+            }
         }
         else if (other.gameObject.name == "Stone")
         {

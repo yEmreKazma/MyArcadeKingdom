@@ -6,45 +6,74 @@ public class Iron : MonoBehaviour, ICollectible
 {
     public string resourceName => "Iron";
     //public int amount { get; set; }
-    public float respawnTime => 45f;
+    public float respawnTime => 20f;
     public bool isDepleted { get; set; }
 
-    public int amount { get; set; } = 5;
+    public int amount { get; set; }
 
-    public void Start()
+    public IronPiece ironPiecePrefab;
+    public Player target;
+    bool canRespawn;
+
+    private void Start()
     {
-
+        amount = 5;
         isDepleted = false;
     }
-
-    private void OnCollisionStay(Collision collision)
+    public void Collect()
     {
-        if (collision.transform.CompareTag("Player"))
+        if (!isDepleted)
         {
-            Collect();
+            if (amount > 1)
+            {
+                ResourceManager.Instance.ironCount++;
+                amount--;
+                SpawnIronPiece();
+            }
+            else if (amount <= 1)
+            {
+                ResourceManager.Instance.ironCount++;
+                amount--;
+                target.animator.SetBool("IsCollecting", false);
+                target.pickaxe.gameObject.SetActive(false);
+                Debug.Log("Iron Depleted");
+                Debug.Log(amount);
+                isDepleted = true;
+                gameObject.GetComponent<Collider>().enabled = false;
+                gameObject.GetComponent<MeshRenderer>().enabled = false;
+                canRespawn = true;
+                TryRespawn();
+            }
         }
     }
 
-    public void Collect()
+    void TryRespawn()
     {
-
-        ResourceManager.Instance.ironCount++;
-        
-
-            isDepleted = true;
-            //Respawn();
-        
+        StartCoroutine(RespawnCooldown());
     }
-    /*public void Respawn()
+    public void Respawn()
     {
-        StartCoroutine(RespawnStone());
-    }
-    IEnumerator RespawnStone()
-    {
-        yield return new WaitForSeconds(respawnTime);
-        Debug.Log("Metal Respawned");
-        amount = 5;
+        gameObject.GetComponent<Collider>().enabled = true;
+        gameObject.GetComponent<MeshRenderer>().enabled = true;
+        Debug.Log("Iron Mine Respawned");
         isDepleted = false;
-    }*/
+        amount = 5;
+    }
+
+
+    IEnumerator RespawnCooldown()
+    {
+        canRespawn = false;
+        yield return new WaitForSeconds(respawnTime);
+        Respawn();
+        canRespawn = true;
+    }
+
+    void SpawnIronPiece()
+    {
+        var ironPiece = Instantiate(ironPiecePrefab, transform.position, Quaternion.identity);
+        ironPiece.targetPlayer = target.gameObject;
+        ironPiece.FollowPlayer();
+    }
 
 }

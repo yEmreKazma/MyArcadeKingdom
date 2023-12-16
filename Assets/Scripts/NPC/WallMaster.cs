@@ -1,26 +1,43 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
+using UnityEngine.Rendering.PostProcessing;
+using DG.Tweening;
 
 public class WallMaster : MonoBehaviour, INpc
 {
     public string npcName => "WallMaster";
-
-    int value;
+    public TextMeshPro requiredText;
+    int requiredAmount;
+    public GameObject wall;
 
     private void Start()
     {
-        value = 0;
+        requiredAmount = 50;
     }
 
-    private void Update()
+    void Update()
     {
-        if(value > 500)
+        requiredText.text = requiredAmount.ToString();
+    }
+
+    private void OnTriggerStay(Collider other)
+    {
+        if (other.gameObject.CompareTag("Player"))
         {
+            if (requiredAmount > 0 && ResourceManager.Instance.woodCount > 0)
+            {
+                ResourceManager.Instance.woodCount--;
+                requiredAmount--;
+            }
+            else if (requiredAmount == 0)
+            {
+                wall.gameObject.transform.DOLocalMoveY(-0.44f, 6f);
+            }
 
         }
     }
-
 
 }
 
