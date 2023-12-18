@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using DG.Tweening;
 using System.Text.RegularExpressions;
+using UnityEngine.SceneManagement;
 
 public class RotateLoading : MonoBehaviour
 {
@@ -10,7 +11,11 @@ public class RotateLoading : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        transform.DORotate(new Vector3(0, 0, 180), 2f, RotateMode.Fast).SetLoops(-1);
+        transform.DORotate(new Vector3(0, 0, 180), 4.05f).OnComplete(() => 
+        {
+            SceneManager.LoadScene("Level1");
+
+        });
 
 
     }

@@ -6,10 +6,12 @@ using UnityEngine;
 public class MissionManager : MonoBehaviour
 {
     public List<string> missions = new List<string>();
-    public TextMeshProUGUI missionText; 
+    public TextMeshProUGUI missionText;
+    string currentMission;
+    
     void Start()
     {
-        missions.Add("Missions 1: Collect 10 woods");
+        missions.Add("Collect 10 woods");
         missions.Add("Missions 2: Talk to the mason");
         missions.Add("Missions 3: Upgrade the walls");
         missions.Add("Missions 4: Survive an attack");
@@ -23,17 +25,16 @@ public class MissionManager : MonoBehaviour
 
     void SetCurrentMission()
     {
-       //
+       currentMission = missions[0];
     }
     // Update is called once per frame
     void Update()
     {
-        CheckMissions();
+        CheckCurrentMission();
     }
 
-    void CheckMissions()
+    void CheckCurrentMission()
     {
-        string currentMission = missions[0];
-        Debug.Log("Current Missions : " + currentMission);
+        missionText.text = currentMission;  
     }
 }
