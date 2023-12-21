@@ -16,7 +16,7 @@ public class Player : MonoBehaviour
     public Animator animator;
     ICollectible collectible;
 
-    bool isCollecting;
+    //bool isCollecting;
     public bool canCollect;
     float collectCooldown = 20f;
 
@@ -55,34 +55,35 @@ public class Player : MonoBehaviour
                     break;
             }
         }
+    }
 
-        if (other.CompareTag("NPC"))
+    /*if (other.CompareTag("NPC"))
+    {
+        if (other.transform.GameObject().name == "WallMaster")
         {
-            if (other.transform.GameObject().name == "WallMaster")
+            if(ResourceManager.Instance.woodCount> 0)
             {
-                if(ResourceManager.Instance.woodCount> 0)
-                {
-                    ResourceManager.Instance.ResourceSpend("Wood", 1);
-                }
+                ResourceManager.Instance.ResourceSpend("Wood", 1);
+            }
 
-            }
-        
-        if (other.transform.GameObject().name == "Blacksmith")
-        {
-            if (sword.level == 1)
-            {
-                sword.level++;
-            }
         }
-        if (other.transform.GameObject().name == "WeaponMaster")
+
+    if (other.transform.GameObject().name == "Blacksmith")
+    {
+        if (sword.level == 1)
         {
-            if (sword.level == 1)
-            {
-                sword.level++;
-            }
-        }
+            sword.level++;
         }
     }
+    if (other.transform.GameObject().name == "WeaponMaster")
+    {
+        if (sword.level == 1)
+        {
+            sword.level++;
+        }
+    }
+    }
+}*/
     void OnTriggerExit(Collider other)
     {
         if (other.CompareTag("Collectible"))
@@ -129,33 +130,5 @@ public class Player : MonoBehaviour
     {
         ResourceManager.Instance.ResourceCollected(collectType, collectible);
     }
-
-    /*private void OnTriggerEnter(Collider other)
-    {
-        if (other.CompareTag("NPC"))
-        {
-            if (other.transform.GameObject().name == "WallMaster")
-            {
-                if (sword.level == 1)
-                {
-                    sword.level++;
-                }
-            }
-        }
-        if (other.transform.GameObject().name == "Blacksmith")
-        {
-            if (sword.level == 1)
-            {
-                sword.level++;
-            }
-        }
-        if (other.transform.GameObject().name == "WeaponMaster")
-        {
-            if (sword.level == 1)
-            {
-                sword.level++;
-            }
-        }
-    }*/
-
 }
+

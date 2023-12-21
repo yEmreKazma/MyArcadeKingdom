@@ -4,24 +4,41 @@ using UnityEngine;
 
 public class Pickaxe : MonoBehaviour, IItem
 {
-    public int level { get; set; }
-
+    public int level { get; set; } = 1;
+    public MeshFilter pickaxeLevel2;
+    public MeshFilter pickaxeLevel3;
+    void Start()
+    {
+        level = 1;
+    }
+    private void Update()
+    {
+        CheckLevel();
+    }
     public void Upgrade()
     {
-        level++;
+        level += 1;
     }
 
     public void Use()
     {
-        Debug.Log("Pickaxe used on Minerals");
+        Debug.Log("Pickaxe used on Mines");
     }
 
-    // Start is called before the first frame update
-    void Start()
+    void CheckLevel()
     {
+        if (level == 2)
+        {
+            MeshFilter meshFilter = GetComponent<MeshFilter>();
 
-        level = 1;
-        Debug.Log("Pickaxe Starting Level : " + level);
+            meshFilter = pickaxeLevel2;
+        }
+        else if (level == 3)
+        {
+            MeshFilter meshFilter = GetComponent<MeshFilter>();
+
+            meshFilter = pickaxeLevel3;
+        }
     }
 
 }

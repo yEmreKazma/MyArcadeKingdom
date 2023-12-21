@@ -4,16 +4,20 @@ using UnityEngine;
 
 public class Axe : MonoBehaviour, IItem
 {
-    public int level { get; set; }
-
+    public int level { get; set; } = 1;
+    public MeshFilter axeLevel2;
+    public MeshFilter axeLevel3;
     void Start()
     {
         level = 1;
-        //Debug.Log("Axe Starting Level : " + level);
+    }
+    private void Update()
+    {
+        CheckLevel();
     }
     public void Upgrade()
     {
-        level++;
+        level += 1;
     }
 
     public void Use()
@@ -21,6 +25,21 @@ public class Axe : MonoBehaviour, IItem
         Debug.Log("Axe used on Tree");
     }
 
+    void CheckLevel()
+    {
+        if (level == 2)
+        {
+            MeshFilter meshFilter = GetComponent<MeshFilter>();
+
+            meshFilter = axeLevel2;
+        }
+        else if (level == 3)
+        {
+            MeshFilter meshFilter = GetComponent<MeshFilter>();
+
+            meshFilter = axeLevel3;
+        }
+    }
 
 
 }

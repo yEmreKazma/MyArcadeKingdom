@@ -12,7 +12,6 @@ public class ResourceManager : MonoBehaviour
     public int woodCount;
     public int ironCount;
 
-    public GameObject woodPiecePrefab;
     public static ResourceManager Instance;
 
     private void Awake()

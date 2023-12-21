@@ -6,12 +6,11 @@ using UnityEngine;
 public class WeaponMaster : MonoBehaviour, INpc
 {
     public string npcName => "WeaponMaster";
-
     int requiredAmount;
     public TextMeshPro requiredText;
     private void Start()
     {
-        requiredAmount = 75;
+        requiredAmount = 30;
     }
 
     void Update()
