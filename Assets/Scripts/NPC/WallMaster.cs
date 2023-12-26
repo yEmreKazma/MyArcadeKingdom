@@ -34,8 +34,20 @@ public class WallMaster : MonoBehaviour, INpc
             else if (requiredAmount == 0)
             {
                 wall.gameObject.transform.DOLocalMoveY(-0.44f, 6f);
+                MissionManager.Instance.iterator++;
+                BattleManager.Instance.BattleAvaliable(true);
             }
 
+        }
+    }
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.gameObject.CompareTag("Player"))
+        {
+            if (MissionManager.Instance.iterator == 1)
+            {
+                MissionManager.Instance.iterator++;
+            }
         }
     }
 

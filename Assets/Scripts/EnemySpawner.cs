@@ -5,6 +5,12 @@ using UnityEngine;
 public class EnemySpawner : MonoBehaviour
 {
 
-    // Start is called before the first frame update
+    private void Update()
+    {
+        if (transform.childCount ==0)
+        {
+            Debug.Log("No more enemies");
+        }
+    }
 
 }

@@ -9,6 +9,7 @@ public class BattleManager : MonoBehaviour
 
     public GameObject battleButton;
     public static BattleManager Instance;
+    public TextMeshProUGUI expText;
 
     private void Awake()
     {
@@ -30,5 +31,15 @@ public class BattleManager : MonoBehaviour
     void BattleButtonAvaliable()
     {
         battleButton.SetActive(true);
+    }
+
+    void BattleLost()
+    {
+        //battleButton.SetActive(false);
+    }
+
+    void BattleWon()
+    {
+
     }
 }
