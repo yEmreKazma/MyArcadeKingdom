@@ -14,6 +14,7 @@ public class Arrow : MonoBehaviour
         if (other.CompareTag("Enemy"))
         {
             Destroy(other.gameObject);
+            //other.gameObject.SetActive(false);
             Destroy(gameObject);
         }
     }

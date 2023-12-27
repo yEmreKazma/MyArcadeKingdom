@@ -47,8 +47,7 @@ public class EnemySpawner : MonoBehaviour
         // Havuzdaki bir etkisiz düþmaný bul ve etkinleþtir
         for (int i = 0; i < enemyPool.Count; i++)
         {
-            if (!enemyPool[i].activeInHierarchy)
-            {
+
                 // Düþmanýn rastgele bir konumunu belirle
                 Vector2 randomSpawnPos = Random.insideUnitCircle * spawnRadius;
                 Vector3 spawnPosition = new Vector3(randomSpawnPos.x, 0f, randomSpawnPos.y) + transform.position;
@@ -57,7 +56,7 @@ public class EnemySpawner : MonoBehaviour
                 enemyPool[i].transform.position = spawnPosition;
                 enemyPool[i].SetActive(true);
                 break; // Bir düþman etkinleþtirildiyse döngüyü sonlandýr
-            }
+            
         }
     }
 
