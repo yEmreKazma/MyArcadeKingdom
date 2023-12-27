@@ -38,8 +38,10 @@ public class BattleManager : MonoBehaviour
         //battleButton.SetActive(false);
     }
 
-    void BattleWon()
+    public void BattleWon()
     {
-
+        int temp = LevelManager.Instance.currentExperience;
+        if (LevelManager.Instance.currentExperience - temp <50)
+        LevelManager.Instance.currentExperience += 50;
     }
 }

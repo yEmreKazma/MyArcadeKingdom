@@ -26,6 +26,7 @@ public class LevelManager : MonoBehaviour
 
     private void Update()
     {
+        CheckCurrentLevel();
         switch (currentLevel)
         {
             case 1:
@@ -57,7 +58,21 @@ public class LevelManager : MonoBehaviour
 
     }
 
-
+    void CheckCurrentLevel()
+    {
+        if(currentExperience < 100)
+        {
+            currentLevel = 1;
+        }
+        else if (currentExperience > 100 && currentExperience <1000)
+        {
+            currentLevel = 2;
+        }
+        else if (currentExperience > 1000)
+        {
+            currentLevel = 3;
+        }
+    }
 
     private void Start()
     {

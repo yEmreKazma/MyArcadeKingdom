@@ -1795,7 +1795,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a71004981fd055945a41274b1277ed4c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  target: {fileID: 0}
+  target: {fileID: 7438802486980242362, guid: 08c0b42bd370c984fa42ab2af110d3b8, type: 3}
 --- !u!136 &-1199818647160706882
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -1804,7 +1804,7 @@ CapsuleCollider:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7901616818808925127}
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_Enabled: 1
   m_Radius: 0.28301656
   m_Height: 1.8413112
