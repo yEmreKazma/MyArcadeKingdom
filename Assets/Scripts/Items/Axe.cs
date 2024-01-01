@@ -1,14 +1,17 @@
+using Palmmedia.ReportGenerator.Core.Parser.Filtering;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class Axe : MonoBehaviour, IItem
 {
-    public int level { get; set; } = 1;
+    public int level;
     public MeshFilter axeLevel2;
     public MeshFilter axeLevel3;
+    MeshFilter mFilter;
     void Start()
     {
+        mFilter = GetComponent<MeshFilter>();
         level = 1;
     }
     private void Update()
@@ -29,15 +32,14 @@ public class Axe : MonoBehaviour, IItem
     {
         if (level == 2)
         {
-            MeshFilter meshFilter = GetComponent<MeshFilter>();
-
-            meshFilter = axeLevel2;
+            Debug.Log("Level atladý");
+            mFilter.mesh = axeLevel2.mesh;
         }
         else if (level == 3)
         {
             MeshFilter meshFilter = GetComponent<MeshFilter>();
 
-            meshFilter = axeLevel3;
+            mFilter.mesh = axeLevel3.mesh;
         }
     }
 

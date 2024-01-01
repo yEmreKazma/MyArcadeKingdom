@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Pickaxe : MonoBehaviour, IItem
 {
-    public int level { get; set; } = 1;
+    public int level;
     public MeshFilter pickaxeLevel2;
     public MeshFilter pickaxeLevel3;
     void Start()
