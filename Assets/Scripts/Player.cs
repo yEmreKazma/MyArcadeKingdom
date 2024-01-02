@@ -4,7 +4,6 @@ using System.Globalization;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.EventSystems;
-using static ToonyColorsPro.ShaderGenerator.Enums;
 
 public class Player : MonoBehaviour
 {
@@ -16,7 +15,6 @@ public class Player : MonoBehaviour
     public Animator animator;
     ICollectible collectible;
 
-    //bool isCollecting;
     public bool canCollect;
     float collectCooldown = 20f;
 

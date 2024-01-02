@@ -2,8 +2,6 @@ using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
-using static ToonyColorsPro.ShaderGenerator.Enums;
-
 public class Blacksmith : MonoBehaviour, INpc
 {
     public Sword sword;
