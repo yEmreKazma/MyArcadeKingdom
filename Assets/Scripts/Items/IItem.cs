@@ -4,6 +4,7 @@ using UnityEngine;
 
 public interface IItem 
 {
+    int level { get; set; }
     public void Use();
     public void Upgrade();
 }

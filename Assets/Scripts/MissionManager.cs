@@ -1,4 +1,3 @@
-using DG.Tweening;
 using System.Collections;
 using System.Collections.Generic;
 using TMPro;
@@ -11,7 +10,6 @@ public class MissionManager : MonoBehaviour
     public TextMeshProUGUI missionProgressText;
     string currentMission;
     public int iterator = 0;
-    public GameObject questTab;
 
     public static MissionManager Instance;
 
@@ -66,8 +64,6 @@ public class MissionManager : MonoBehaviour
         }
         else
         {
-            
-
             Debug.Log("Mission Completed");
         }
 

@@ -36,7 +36,7 @@ public class Blacksmith : MonoBehaviour, INpc
                     ResourceManager.Instance.stoneCount--;
                     requiredAmount--;
                 }
-                if (requiredAmount == 0)
+                else if (requiredAmount == 0)
                 {
                     if (axe.level == 1 && pickaxe.level == 1)
                     {
