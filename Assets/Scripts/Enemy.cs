@@ -19,15 +19,12 @@ public class Enemy : MonoBehaviour
     private void Update()
     {
         transform.LookAt(target);
-        EnemyMove();
     }
 
-    void EnemyMove()
+    public void EnemyMove()
     {
-        if (Input.GetKeyDown("space"))
-        {
-            transform.DOMove(target.transform.position, 10);
-        }
+        Debug.Log("Enemy movement");
+        transform.DOMove(target.position, 10);
 
     }
 }

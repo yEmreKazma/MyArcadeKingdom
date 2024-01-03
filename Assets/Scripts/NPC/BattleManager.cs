@@ -11,6 +11,10 @@ public class BattleManager : MonoBehaviour
     public static BattleManager Instance;
     public TextMeshProUGUI expText;
     public GameObject questTab;
+    public GameObject wonPanel;
+
+    public GameObject startBattleButton;
+
     private void Awake()
     {
         Instance = this;
@@ -47,6 +51,7 @@ public class BattleManager : MonoBehaviour
 
             MissionManager.Instance.missionProgressText.text = 1 + "/" + 1;
             MissionManager.Instance.questTab.transform.DOScale(0, 5f);
+            //wonPanel.SetActive(true);
             CameraManager.Instance.BattleOver();
         }
 

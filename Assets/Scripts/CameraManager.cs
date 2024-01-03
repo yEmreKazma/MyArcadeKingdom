@@ -6,7 +6,6 @@ public class CameraManager : MonoBehaviour
 {
     public GameObject mainCamera; 
     public GameObject secondaryCamera;
-
     public static CameraManager Instance;
     private void Awake()
     {
