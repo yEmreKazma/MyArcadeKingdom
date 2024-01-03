@@ -13,6 +13,8 @@ public class ObjectPoolManager : MonoBehaviour
 
     private int currentEnemyCount = 0;
 
+    bool expGained = false;
+
     void Start()
     {
         // InvokeRepeating allows us to repeatedly call a method with a delay
@@ -33,6 +35,25 @@ public class ObjectPoolManager : MonoBehaviour
             // Increment the enemy count
             currentEnemyCount++;
             Debug.Log(currentEnemyCount);
+
+
+        }
+    }
+
+    private void Update()
+    {
+        if (transform.childCount == 0 && expGained == false)
+        {
+            Debug.Log(transform.childCount);
+            BattleManager.Instance.BattleWon();
+            expGained = true;
+        }
+
+        if (expGained == true)
+        {
+            currentEnemyCount = 0;
+            InvokeRepeating("SpawnEnemy", 0f, spawnInterval);
+            expGained = false;
         }
     }
 }

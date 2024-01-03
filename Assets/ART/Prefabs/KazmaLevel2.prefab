@@ -96,3 +96,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5363d89dac1587942bf35ca925a8cf6f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  pickaxeLevel2: {fileID: 7208968075229795826}
+  pickaxeLevel3: {fileID: 435638884457920810, guid: 1faade91ded87d44f8c455d10e2046ee, type: 3}
