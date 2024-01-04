@@ -7,6 +7,7 @@ public class CameraManager : MonoBehaviour
     public GameObject mainCamera; 
     public GameObject secondaryCamera;
     public static CameraManager Instance;
+    public GameObject battleButton;
     private void Awake()
     {
         if (Instance == null)
@@ -29,10 +30,12 @@ public class CameraManager : MonoBehaviour
     {
         DisableBattleCamera();
         EnableMainCamera();
+        battleButton.SetActive(false);
     }
     public void EnableMainCamera()
     {
         mainCamera.SetActive(true);
+        battleButton.SetActive(true);
     }
     public void EnableBattleCamera()
     {

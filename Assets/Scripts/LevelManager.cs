@@ -64,7 +64,7 @@ public class LevelManager : MonoBehaviour
         {
             currentLevel = 1;
         }
-        else if (currentExperience > 100 && currentExperience <1000)
+        else if (currentExperience >= 100 && currentExperience <1000)
         {
             currentLevel = 2;
         }

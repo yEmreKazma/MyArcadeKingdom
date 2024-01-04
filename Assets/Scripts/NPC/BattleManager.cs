@@ -51,9 +51,15 @@ public class BattleManager : MonoBehaviour
 
             MissionManager.Instance.missionProgressText.text = 1 + "/" + 1;
             MissionManager.Instance.questTab.transform.DOScale(0, 5f);
-            //wonPanel.SetActive(true);
-            CameraManager.Instance.BattleOver();
+
+            wonPanel.SetActive(true);
         }
 
+    }
+
+    public void FinishBattle()
+    {
+        CameraManager.Instance.BattleOver();
+        wonPanel.SetActive(false);
     }
 }
